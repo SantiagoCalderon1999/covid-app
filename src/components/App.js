@@ -1,10 +1,17 @@
 import React from 'react';
-import MenuBar from './MenuBar';
-
+import MenuBar from './Menu/MenuBar';
+import TabMenu from './Tab/TabMenu';
+import {ThemeProvider} from '@mui/material/styles';
+import theme from './Theme';
 class App extends React.Component{
     render(){
         return(
-        <div><MenuBar/></div>
+        <ThemeProvider theme={theme}>
+            <div>
+                <MenuBar/>
+                <TabMenu/>
+            </div>
+        </ThemeProvider>
         );
     }
 }

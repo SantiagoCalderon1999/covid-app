@@ -8,7 +8,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import SettingsIcon from '@mui/icons-material/Settings';
-import MenuElement from './MenuElement'
+import MenuElement from './MenuElement';
 
 const style = { 
   bgcolor: "#1bb21b" 
