@@ -7,7 +7,8 @@ import IconButton from '@mui/material/IconButton';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import Tooltip from '@mui/material/Tooltip';
+import SettingsIcon from '@mui/icons-material/Settings';
+import MenuElement from './MenuElement'
 
 const style = { 
   bgcolor: "#1bb21b" 
@@ -32,24 +33,10 @@ function MenuBar(){
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 COVID STATISTICS
               </Typography>
-              <Tooltip
-                title="View profile"
-                placement="top"
-              >
-                <Button color="inherit" data-tip data-for="userTip"><PersonIcon/></Button>
-              </Tooltip>
-              <Tooltip
-                title="Authenticate"
-                placement="top"
-              >
-                <Button color="inherit"><AdminPanelSettingsIcon/></Button>
-              </Tooltip>
-              <Tooltip
-                title="Logout"
-                placement="top"
-              >
-                <Button color="inherit" ><LogoutIcon/></Button>
-              </Tooltip>
+              <MenuElement  tooltipTitle="View profile" ><PersonIcon/></MenuElement>
+              <MenuElement  tooltipTitle="Authenticate" ><AdminPanelSettingsIcon/></MenuElement>
+              <MenuElement  tooltipTitle="Settings" ><SettingsIcon/></MenuElement>
+              <MenuElement  tooltipTitle="Logout" ><LogoutIcon/></MenuElement>
             </Toolbar>
           </AppBar>
       );
