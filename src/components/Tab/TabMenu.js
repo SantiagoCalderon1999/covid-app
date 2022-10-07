@@ -3,7 +3,7 @@ import Tab from '@mui/material/Tab';
 import TabPanel from './TabPanel';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
-
+import CountryDataPage from '../CountryDataPage';
 
 /**
  * Places in screen two different tabs
@@ -20,14 +20,18 @@ function TabMenu() {
       <Box sx={{ width: '100%' }}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs value={value} onChange={handleChange} aria-label="basic tabs example"> 
-            <Tab label="Historical Data"  />
+            <Tab label="Current country Data"  />
+            <Tab label="Current global data"  />
             <Tab label="Symptoms reporting"  />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          Historical Data
+          <CountryDataPage/>
         </TabPanel>
         <TabPanel value={value} index={1}>
+          Current global data
+        </TabPanel>
+        <TabPanel value={value} index={2}>
           Symptoms reporting
         </TabPanel>
       </Box>
