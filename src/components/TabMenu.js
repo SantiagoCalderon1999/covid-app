@@ -3,7 +3,7 @@ import Tab from '@mui/material/Tab';
 import TabPanel from './TabPanel';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
-import CountryDataPage from '../CountryDataPage';
+import CountryDataPage from './CountryDataPage';
 
 /**
  * Places in screen two different tabs

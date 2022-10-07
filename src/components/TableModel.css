@@ -1,0 +1,9 @@
+.row {
+    background-color:#FFFFFF;
+    cursor: default;
+}
+
+.row:hover {
+    background-color:#d4f9d4;
+    cursor: pointer;
+}
