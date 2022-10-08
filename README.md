@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Covid App
 
 This repo contains the source code of a webpage that obtains information from the Covid19API and shows the results. Furthermore, this frontend can receive information about the symptoms that are being experienced by the users of the application.
 
