@@ -13,7 +13,7 @@ const columnTitles = [
     "Name",
     "Email",
     "Birthdate",
-    "Temperature",
+    "Temperature (°C)",
     "Symptoms",
 ];
 
@@ -157,10 +157,19 @@ function BasicTextFields() {
                         error = {errors.symptoms !== "" && errors.symptoms !== undefined}
                         helperText = {errors.symptoms}
                     />
-                    <br/>
-                    <Button type='submit' onClick={handleSubmit}>Submit</Button>
+                    <Box
+                        display="flex"
+                        justifyContent="flex-end"
+                        alignItems="flex-end"
+                        noValidate
+                        autoComplete="off"
+                        mb={3}
+                        mr={1}
+                        mt={1}
+                    >
+                        <Button type='submit' variant="contained" sx={{align:'right'}} onClick={handleSubmit}>Submit</Button>
+                    </Box>
                 </form>
-                <br/>
                 <TableSymptoms columnTitles={columnTitles} rows={tableRecords}/>
             </Box>
         </Grid>

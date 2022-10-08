@@ -15,14 +15,12 @@ class CountryDataPage extends React.Component{
         "cases": "",
         "recovered": "",
         "deaths": "",
-        "detail": ""
         }],
         rowsStored: [{
         "country": "",
         "cases": "",
         "recovered": "",
         "deaths": "",
-        "detail": ""
         }]
     }
     filterRows = (text) => {
@@ -38,7 +36,6 @@ class CountryDataPage extends React.Component{
                 "cases": country.TotalConfirmed,
                 "recovered": country.TotalRecovered,
                 "deaths": country.TotalDeaths,
-                "detail": ""
             };
         }));
     }
@@ -46,7 +43,7 @@ class CountryDataPage extends React.Component{
         this.getRows().then(result => this.setState({rows:result, rowsStored:result})); 
     }
     render(){
-    const columnTitles = ["Country", "Cases", "Recovered", "Deaths", ""];
+    const columnTitles = ["Country", "Cases", "Recovered", "Deaths"];
     return (
         <div>
             <SearchBar filterRows={this.filterRows}/>

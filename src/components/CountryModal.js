@@ -51,19 +51,30 @@ const transformArray = (arr) => {
     });
     return arrayTransformed;
 }
+
+/**
+ * Empties an array
+ * @returns Array of objects containing empty values
+ */
+const emptyCountryArray = () => {
+    return names.map((name) =>{
+        return {
+            name: name,
+            values:[]
+        }
+    });
+}
+
   /**
    * Shows a modal with all the information of a country 
    * @returns JSX containing all the elements needed for the modal
    */
 function CountryModal({countrySlug, open, onClosing}) {
-    const [countryInfo, setCountryInfo] = useState(names.map((name) =>{
-            return {
-                name: name,
-                values:[]
-            }
-        }));
+    const [countryInfo, setCountryInfo] = useState(emptyCountryArray());
     const handleClose = () => {
         onClosing();
+        let emptyArray = emptyCountryArray(); 
+        setCountryInfo(emptyArray);
     };
     const retrieveCountryInfo = async (countrySlug) => {
         if(countrySlug){
