@@ -4,6 +4,7 @@ import TabPanel from './TabPanel';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import CountryDataPage from './CountryDataPage';
+import SymptomsForm from './SymptomsForm'
 
 /**
  * Places in screen two different tabs
@@ -28,7 +29,7 @@ function TabMenu() {
           <CountryDataPage/>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Symptoms reporting
+          <SymptomsForm/>
         </TabPanel>
       </Box>
     );
