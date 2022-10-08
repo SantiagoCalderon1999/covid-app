@@ -9,26 +9,28 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import TableSymptoms from './TableSymptoms';
 import Grid from '@mui/material/Grid';
 
+const columnTitles = [
+    "Name",
+    "Email",
+    "Birthdate",
+    "Temperature",
+    "Symptoms",
+];
+
 /**
  * Creates a basic form
  * @returns JSX containing the form information 
  */
 function BasicTextFields() {
-    const columnTitles = [
-        "Name",
-        "Email",
-        "Birthdate",
-        "Temperature",
-        "Symptoms",
-    ];
     const [inputs, setInputs] = useState({
         name: "",
         email: "",
-        birthdate: "",
+        birthdate: null,
         temperature: "",
         symptoms: ""
     })
     const [tableRecords, setTableRecords] = useState([]);
+    const [errors, setErrors] = useState({});
     const handleChange = (e) => {
        setInputs((prevState) => ({
             ...prevState,
@@ -37,9 +39,29 @@ function BasicTextFields() {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        let tempTableRecords = tableRecords;
-        tempTableRecords.push(inputs);
-        setTableRecords(tempTableRecords);
+        if(validate()){
+            let tempTableRecords = tableRecords;
+            tempTableRecords.push(inputs);
+            setTableRecords(tempTableRecords);
+        }
+    };
+    const validateEmail = (email) => {
+        return email.match(
+            /^\w+@[a-zA-Z]+?\.[a-zA-Z]{2,3}$/
+        );
+      };
+    const validate = () => {
+        let temp = {}
+        temp.email = inputs.email ? "" : "This field is required";
+        temp.email = validateEmail(inputs.email) ? "" : "This is not a valid email address";
+        temp.name = inputs.name ? "" : "This field is required";
+        temp.temperature = inputs.temperature ? "" : "This field is required";
+        temp.birthdate = inputs.birthdate ? "" : "This field is required";
+        temp.symptoms = inputs.symptoms ? "" : "This field is required";
+        setErrors({
+            ...temp
+        });
+        return Object.values(temp).every(x => x === "")
     };
     return (
         <Grid
@@ -59,6 +81,7 @@ function BasicTextFields() {
                 autoComplete="off"
             >
                 <form>
+                    {console.log(errors.name)}
                     <TextField 
                         name="name"
                         id="outlined-basic" 
@@ -66,7 +89,8 @@ function BasicTextFields() {
                         variant="outlined" 
                         value={inputs.name}
                         onChange={handleChange}
-                        type="text"
+                        error = {errors.name !== "" && errors.name !== undefined}
+                        helperText = {errors.name}
                     />
                     <br/>
                     <TextField 
@@ -76,7 +100,9 @@ function BasicTextFields() {
                         variant="outlined" 
                         value={inputs.email}
                         onChange={handleChange}
-                        type="email"
+                        type="text"
+                        error = {errors.email !== "" && errors.email !== undefined}
+                        helperText = {errors.email}
                     />
                     <br/>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -85,12 +111,22 @@ function BasicTextFields() {
                         name="birthdate"
                         value={inputs.birthdate}
                         onChange={(newValue) => {
-                            setInputs((prevState) => ({
-                                ...prevState,
-                                birthdate: newValue.toString(),
-                            }));
+                            if(newValue)
+                                setInputs((prevState) => ({
+                                    ...prevState,
+                                    birthdate: newValue.toString(),
+                                }));
                         }}
-                        renderInput={(params) => <TextField {...params} />}
+                        
+                        renderInput={(params) => 
+                            <TextField
+                                {...params} 
+                                name="birthdate"
+                                onChange={handleChange}
+                                error = {errors.birthdate !== "" && errors.birthdate !== undefined}
+                                helperText = {errors.birthdate}
+                            />
+                        }
                     />
                     </LocalizationProvider>
                     <br/>
@@ -106,6 +142,8 @@ function BasicTextFields() {
                         type="number"
                         value={inputs.temperature}
                         onChange={handleChange}
+                        error = {errors.temperature !== "" && errors.temperature !== undefined}
+                        helperText = {errors.temperature}
                     />
                     <br/>
                     <TextField 
@@ -113,9 +151,11 @@ function BasicTextFields() {
                         id="outlined-basic" 
                         label="Symptom" 
                         variant="outlined" 
-                        value={inputs.symptom}
+                        value={inputs.symptoms}
                         onChange={handleChange}
                         type="text"
+                        error = {errors.symptoms !== "" && errors.symptoms !== undefined}
+                        helperText = {errors.symptoms}
                     />
                     <br/>
                     <Button type='submit' onClick={handleSubmit}>Submit</Button>
