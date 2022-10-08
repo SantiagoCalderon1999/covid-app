@@ -9,8 +9,18 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 500,
-  height: 500,
+  width: {
+    xs: 250,
+    sm: 450,
+    md: 650,
+    lg: 500
+},
+  height: {
+    xs: 250,
+    sm: 450,
+    md: 650,
+    lg: 500
+},
   bgcolor: "background.paper",
   pt: 2,
   px: 4,

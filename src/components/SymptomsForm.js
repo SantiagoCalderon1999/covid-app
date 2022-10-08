@@ -74,7 +74,12 @@ function BasicTextFields() {
       <Box
         component="form"
         sx={{
-          "& .MuiTextField-root": { m: 1, width: "80ch" },
+          "& .MuiTextField-root": { m: 1, width: {
+            xs: 300,
+            sm: 500,
+            md: 600,
+            lg: 700
+        } },
         }}
         alignItems="center"
         noValidate
@@ -135,7 +140,6 @@ function BasicTextFields() {
             id="outlined-end-adornment"
             label="Temperature"
             variant="outlined"
-            sx={{ m: 1, width: "25ch" }}
             InputProps={{
               endAdornment: <InputAdornment position="end">°C</InputAdornment>,
             }}
@@ -161,12 +165,17 @@ function BasicTextFields() {
           />
           <Box
             display="flex"
-            justifyContent="flex-end"
-            alignItems="flex-end"
+            justifyContent="flex-start"
+            alignItems="flex-start"
             noValidate
             autoComplete="off"
             mb={3}
-            mr={1}
+            ml={{
+                xs: 28,
+                sm: 52.5,
+                md: 68,
+                lg: 78
+            }}
             mt={1}
           >
             <Button

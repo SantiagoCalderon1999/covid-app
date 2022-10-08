@@ -37,7 +37,12 @@ function TableModel({ columnTitles, rows }) {
             open={open}
             onClosing={onClosing}
           />
-          <Table sx={{ minWidth: 1500 }} aria-label="simple table">
+          <Table sx={{ minWidth: {
+            xs: 200,
+            sm: 450,
+            md: 650,
+            lg: 1400
+        } }} aria-label="simple table">
             <TableHead>
               <TableRow>
                 {columnTitles.map((columnTitle) => (

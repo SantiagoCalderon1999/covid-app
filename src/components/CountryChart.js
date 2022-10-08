@@ -21,8 +21,18 @@ function CountryChart({ countrySlug, countryInfo }) {
   return (
     <Chart
       style={{
-        height: 500,
-        width: 500,
+        height: {
+            xs: 250,
+            sm: 450,
+            md: 650,
+            lg: 500
+        },
+        width: {
+            xs: 250,
+            sm: 450,
+            md: 650,
+            lg: 500
+        },
       }}
     >
       <ChartTitle text={countrySlug.toUpperCase().replaceAll("-", " ")} />

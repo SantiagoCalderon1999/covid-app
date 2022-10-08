@@ -24,7 +24,12 @@ function SearchBar({ filterRows }) {
         p: "2px 4px",
         display: "flex",
         alignItems: "center",
-        width: 400,
+        width: {
+            xs: 200,
+            sm: 275,
+            md: 350,
+            lg: 400
+        },
         margin: "auto",
       }}
     >

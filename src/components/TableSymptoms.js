@@ -14,7 +14,12 @@ import Paper from "@mui/material/Paper";
 function TableSymptoms({ columnTitles, rows }) {
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: {
+            xs: 300,
+            sm: 450,
+            md: 600,
+            lg: 650
+        } }} aria-label="simple table">
         <TableHead>
           <TableRow>
             {columnTitles.map((columnTitle) => (
