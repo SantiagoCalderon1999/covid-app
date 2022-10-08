@@ -21,7 +21,6 @@ function TabMenu() {
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs value={value} onChange={handleChange} aria-label="basic tabs example"> 
             <Tab label="Current country Data"  />
-            <Tab label="Current global data"  />
             <Tab label="Symptoms reporting"  />
           </Tabs>
         </Box>
@@ -29,9 +28,6 @@ function TabMenu() {
           <CountryDataPage/>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Current global data
-        </TabPanel>
-        <TabPanel value={value} index={2}>
           Symptoms reporting
         </TabPanel>
       </Box>

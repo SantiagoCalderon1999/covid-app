@@ -9,25 +9,23 @@ import Paper from '@mui/material/Paper';
 import './TableModel.css'
 import CountryModal from './CountryModal';
 
-function openModal(countrySlug){
-  return <CountryModal  countrySlug = {countrySlug}/>
-}
-
 /**
  * Creates a table with all the information of a country
  * @returns JSX with all the tags related to the table
  */
 function TableModel({columnTitles, rows}) {
   const [open, setOpen] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState("");
   const onClosing = () => {
     setOpen(false);
   };
-  const onModalOpening = () => {
+  const selectRow = (countrySlug) => {
+    setSelectedCountry(countrySlug);
     setOpen(true);
   };
   return (
     <TableContainer component={Paper}>
-      <CountryModal open={open} onClosing={onClosing}/>
+      <CountryModal  countrySlug={selectedCountry} open={open} onClosing={onClosing}/>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -37,7 +35,7 @@ function TableModel({columnTitles, rows}) {
         <TableBody>
           {rows.map((row) => (
             <TableRow
-              onClick={() => onModalOpening(row.country)}
+              onClick={() => selectRow(row.country)}
               key={row.country}
               className="row"
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

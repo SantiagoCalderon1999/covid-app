@@ -1,6 +1,5 @@
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
-import PersonIcon from '@mui/icons-material/Person';
 
 /**
  * Creates a menu element

@@ -8,6 +8,10 @@
 # testing
 /coverage
 
+# secret keys
+.env
+kendo-ui-license.txt
+
 # production
 /build
 
